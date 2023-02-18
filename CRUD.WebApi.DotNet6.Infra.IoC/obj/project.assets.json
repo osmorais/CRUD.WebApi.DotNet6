@@ -1,0 +1,135 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "CRUD.WebApi.DotNet6.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CRUD.WebApi.DotNet6.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CRUD.WebApi.DotNet6.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CRUD.WebApi.DotNet6.Application.dll": {}
+        }
+      },
+      "CRUD.WebApi.DotNet6.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/CRUD.WebApi.DotNet6.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CRUD.WebApi.DotNet6.Domain.dll": {}
+        }
+      },
+      "CRUD.WebApi.DotNet6.Infra.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CRUD.WebApi.DotNet6.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CRUD.WebApi.DotNet6.Infra.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CRUD.WebApi.DotNet6.Infra.Data.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CRUD.WebApi.DotNet6.Application/1.0.0": {
+      "type": "project",
+      "path": "../CRUD.WebApi.DotNet6.Application/CRUD.WebApi.DotNet6.Application.csproj",
+      "msbuildProject": "../CRUD.WebApi.DotNet6.Application/CRUD.WebApi.DotNet6.Application.csproj"
+    },
+    "CRUD.WebApi.DotNet6.Domain/1.0.0": {
+      "type": "project",
+      "path": "../CRUD.WebApi.DotNet6.Domain/CRUD.WebApi.DotNet6.Domain.csproj",
+      "msbuildProject": "../CRUD.WebApi.DotNet6.Domain/CRUD.WebApi.DotNet6.Domain.csproj"
+    },
+    "CRUD.WebApi.DotNet6.Infra.Data/1.0.0": {
+      "type": "project",
+      "path": "../CRUD.WebApi.DotNet6.Infra.Data/CRUD.WebApi.DotNet6.Infra.Data.csproj",
+      "msbuildProject": "../CRUD.WebApi.DotNet6.Infra.Data/CRUD.WebApi.DotNet6.Infra.Data.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "CRUD.WebApi.DotNet6.Application >= 1.0.0",
+      "CRUD.WebApi.DotNet6.Domain >= 1.0.0",
+      "CRUD.WebApi.DotNet6.Infra.Data >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\osmor\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Infra.IoC\\CRUD.WebApi.DotNet6.Infra.IoC.csproj",
+      "projectName": "CRUD.WebApi.DotNet6.Infra.IoC",
+      "projectPath": "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Infra.IoC\\CRUD.WebApi.DotNet6.Infra.IoC.csproj",
+      "packagesPath": "C:\\Users\\osmor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Infra.IoC\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\osmor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Application\\CRUD.WebApi.DotNet6.Application.csproj": {
+              "projectPath": "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Application\\CRUD.WebApi.DotNet6.Application.csproj"
+            },
+            "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Domain\\CRUD.WebApi.DotNet6.Domain.csproj": {
+              "projectPath": "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Domain\\CRUD.WebApi.DotNet6.Domain.csproj"
+            },
+            "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Infra.Data\\CRUD.WebApi.DotNet6.Infra.Data.csproj": {
+              "projectPath": "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Infra.Data\\CRUD.WebApi.DotNet6.Infra.Data.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

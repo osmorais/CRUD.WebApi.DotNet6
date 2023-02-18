@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CRUD.WebApi.DotNet6.Application\CRUD.WebApi.DotNet6.Application.csproj" />
+    <ProjectReference Include="..\CRUD.WebApi.DotNet6.Domain\CRUD.WebApi.DotNet6.Domain.csproj" />
+    <ProjectReference Include="..\CRUD.WebApi.DotNet6.Infra.Data\CRUD.WebApi.DotNet6.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
