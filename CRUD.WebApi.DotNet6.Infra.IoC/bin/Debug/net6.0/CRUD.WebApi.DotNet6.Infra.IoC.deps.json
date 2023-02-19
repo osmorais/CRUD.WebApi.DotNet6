@@ -1,0 +1,64 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CRUD.WebApi.DotNet6.Infra.IoC/1.0.0": {
+        "dependencies": {
+          "CRUD.WebApi.DotNet6.Application": "1.0.0",
+          "CRUD.WebApi.DotNet6.Domain": "1.0.0",
+          "CRUD.WebApi.DotNet6.Infra.Data": "1.0.0"
+        },
+        "runtime": {
+          "CRUD.WebApi.DotNet6.Infra.IoC.dll": {}
+        }
+      },
+      "CRUD.WebApi.DotNet6.Application/1.0.0": {
+        "dependencies": {
+          "CRUD.WebApi.DotNet6.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CRUD.WebApi.DotNet6.Application.dll": {}
+        }
+      },
+      "CRUD.WebApi.DotNet6.Domain/1.0.0": {
+        "runtime": {
+          "CRUD.WebApi.DotNet6.Domain.dll": {}
+        }
+      },
+      "CRUD.WebApi.DotNet6.Infra.Data/1.0.0": {
+        "dependencies": {
+          "CRUD.WebApi.DotNet6.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CRUD.WebApi.DotNet6.Infra.Data.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CRUD.WebApi.DotNet6.Infra.IoC/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CRUD.WebApi.DotNet6.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CRUD.WebApi.DotNet6.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CRUD.WebApi.DotNet6.Infra.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

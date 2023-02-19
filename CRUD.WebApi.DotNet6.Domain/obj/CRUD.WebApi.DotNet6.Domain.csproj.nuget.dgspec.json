@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Domain\\CRUD.WebApi.DotNet6.Domain.csproj": {}
+    "D:\\Projetos Jr\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Domain\\CRUD.WebApi.DotNet6.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Domain\\CRUD.WebApi.DotNet6.Domain.csproj": {
+    "D:\\Projetos Jr\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Domain\\CRUD.WebApi.DotNet6.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Domain\\CRUD.WebApi.DotNet6.Domain.csproj",
+        "projectUniqueName": "D:\\Projetos Jr\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Domain\\CRUD.WebApi.DotNet6.Domain.csproj",
         "projectName": "CRUD.WebApi.DotNet6.Domain",
-        "projectPath": "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Domain\\CRUD.WebApi.DotNet6.Domain.csproj",
-        "packagesPath": "C:\\Users\\osmor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\osmor\\OneDrive\\ARQUIVOS\\Estudo\\.NET 6\\Challenge Parana Banco\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Domain\\obj\\",
+        "projectPath": "D:\\Projetos Jr\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Domain\\CRUD.WebApi.DotNet6.Domain.csproj",
+        "packagesPath": "C:\\Users\\laris\\.nuget\\packages\\",
+        "outputPath": "D:\\Projetos Jr\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\osmor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\laris\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -1,16 +1,11 @@
 ﻿using CRUD.WebApi.DotNet6.Domain.Validations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CRUD.WebApi.DotNet6.Domain.Entities
 {
     public abstract class Person
     {
-        protected int PersonId { get; set; }
-        protected string Name { get; set; }
+        public int PersonId { get; set; }
+        public string Name { get; set; }
 
         public Person () { }
 

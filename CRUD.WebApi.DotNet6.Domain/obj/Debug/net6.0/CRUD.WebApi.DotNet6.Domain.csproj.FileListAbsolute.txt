@@ -1,0 +1,12 @@
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Domain\bin\Debug\net6.0\CRUD.WebApi.DotNet6.Domain.deps.json
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Domain\bin\Debug\net6.0\CRUD.WebApi.DotNet6.Domain.dll
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Domain\bin\Debug\net6.0\CRUD.WebApi.DotNet6.Domain.pdb
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Domain\obj\Debug\net6.0\CRUD.WebApi.DotNet6.Domain.csproj.AssemblyReference.cache
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Domain\obj\Debug\net6.0\CRUD.WebApi.DotNet6.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Domain\obj\Debug\net6.0\CRUD.WebApi.DotNet6.Domain.AssemblyInfoInputs.cache
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Domain\obj\Debug\net6.0\CRUD.WebApi.DotNet6.Domain.AssemblyInfo.cs
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Domain\obj\Debug\net6.0\CRUD.WebApi.DotNet6.Domain.csproj.CoreCompileInputs.cache
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Domain\obj\Debug\net6.0\CRUD.WebApi.DotNet6.Domain.dll
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Domain\obj\Debug\net6.0\refint\CRUD.WebApi.DotNet6.Domain.dll
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Domain\obj\Debug\net6.0\CRUD.WebApi.DotNet6.Domain.pdb
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Domain\obj\Debug\net6.0\ref\CRUD.WebApi.DotNet6.Domain.dll

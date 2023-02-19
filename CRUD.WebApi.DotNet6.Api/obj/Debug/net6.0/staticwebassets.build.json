@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "RZ+RE+kyDwF521RSgAe7e4L2TfHd/9vNFLAeEzxhoi8=",
+  "Source": "CRUD.WebApi.DotNet6.Api",
+  "BasePath": "_content/CRUD.WebApi.DotNet6.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
