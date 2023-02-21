@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "lbzhu2VIWrC3lyixtf/5dKc8qtZCTmQkCyDDJR0ZcBCDxKKuUHbVqES7d6B9y4Ad3RfQ5gQ9KOljKo5BeINhIA==",
+  "dgSpecHash": "7YrVLofGp0qqgYWQ7muLen+aLIqSoShQxgtni9acnV+HEXrexgVq8Wgvec55WHUV++iQzqft3GMB+h0wE/2S3Q==",
   "success": true,
   "projectFilePath": "D:\\Projetos Jr\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Application\\CRUD.WebApi.DotNet6.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\laris\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512"
+  ],
   "logs": []
 }

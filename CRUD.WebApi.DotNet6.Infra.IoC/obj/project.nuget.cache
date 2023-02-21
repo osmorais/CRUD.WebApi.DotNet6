@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "fWjBnwc9IA6gD74lbvHSEkXuXZEiPvDa3EweuH4qbTde62M4r0lbwEumtL3lLBtBxHhPjNteUXI04aqJJgWxew==",
+  "dgSpecHash": "w45XvQHyBzbumDbtS5yd7IznIFAW42RkacxIUaXRqahc+4ukl1mvTg94Ys2v3rIV6YPi245CVbc3FkkPAGK1+w==",
   "success": true,
   "projectFilePath": "D:\\Projetos Jr\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Infra.IoC\\CRUD.WebApi.DotNet6.Infra.IoC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\laris\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\laris\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.1\\microsoft.entityframeworkcore.6.0.1.nupkg.sha512",
     "C:\\Users\\laris\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.1\\microsoft.entityframeworkcore.abstractions.6.0.1.nupkg.sha512",
     "C:\\Users\\laris\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.1\\microsoft.entityframeworkcore.analyzers.6.0.1.nupkg.sha512",

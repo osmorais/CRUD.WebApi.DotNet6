@@ -38,3 +38,10 @@ D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Api\obj\Debug\net6.0\refi
 D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Api\obj\Debug\net6.0\CRUD.WebApi.DotNet6.Api.pdb
 D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Api\obj\Debug\net6.0\CRUD.WebApi.DotNet6.Api.genruntimeconfig.cache
 D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Api\obj\Debug\net6.0\ref\CRUD.WebApi.DotNet6.Api.dll
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Api\bin\Debug\net6.0\Npgsql.dll
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Api\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\Projetos Jr\CRUD.WebApi.DotNet6\CRUD.WebApi.DotNet6.Api\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
