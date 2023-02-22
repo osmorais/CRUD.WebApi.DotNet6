@@ -9,6 +9,11 @@ namespace CRUD.WebApi.DotNet6.Infra.Data.Repository
     {
         private readonly ApplicationDbContext _db;
 
+        public PersonRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
         public async Task<List<Person>> GetAllAsync()
         {
             return await _db.Person.ToListAsync();

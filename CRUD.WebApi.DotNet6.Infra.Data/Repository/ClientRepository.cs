@@ -8,6 +8,12 @@ namespace CRUD.WebApi.DotNet6.Infra.Data.Repository
     public class ClientRepository : IClientRepository
     {
         public readonly ApplicationDbContext _db;
+
+        public ClientRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
         public async Task<List<Client>> GetAllAsync()
         {
             return await _db.Client.ToListAsync();

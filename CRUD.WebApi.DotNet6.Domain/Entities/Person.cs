@@ -2,7 +2,7 @@
 
 namespace CRUD.WebApi.DotNet6.Domain.Entities
 {
-    public abstract class Person
+    public class Person
     {
         public int PersonId { get; set; }
         public string Name { get; set; }

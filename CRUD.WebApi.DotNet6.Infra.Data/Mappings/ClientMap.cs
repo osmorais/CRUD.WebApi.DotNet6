@@ -10,7 +10,7 @@ namespace CRUD.WebApi.DotNet6.Infra.Data.Mappings
         {
             builder.ToTable("client");
 
-            builder.HasKey(x => x.ClientId);
+            //builder.HasKey(x => x.ClientId);
 
             builder.Property(x => x.ClientId)
                 .HasColumnName("clientid")
