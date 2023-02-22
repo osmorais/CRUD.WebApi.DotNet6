@@ -12,9 +12,10 @@ namespace CRUD.WebApi.DotNet6.Application.Services
         private readonly IPersonRepository _personRepository;
         private readonly IMapper _mapper;
 
-        public PersonService()
+        public PersonService(IPersonRepository personRepository, IMapper mapper)
         {
-
+            this._personRepository= personRepository;
+            this._mapper= mapper;
         }
 
         public async Task<ResultService<PersonDTO>> CreateAsync(PersonDTO personDTO)

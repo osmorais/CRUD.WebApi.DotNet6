@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CRUD.WebApi.DotNet6.Application\CRUD.WebApi.DotNet6.Application.csproj" />
     <ProjectReference Include="..\CRUD.WebApi.DotNet6.Domain\CRUD.WebApi.DotNet6.Domain.csproj" />
     <ProjectReference Include="..\CRUD.WebApi.DotNet6.Infra.Data\CRUD.WebApi.DotNet6.Infra.Data.csproj" />

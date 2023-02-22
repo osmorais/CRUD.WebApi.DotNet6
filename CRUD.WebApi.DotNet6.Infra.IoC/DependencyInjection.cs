@@ -14,7 +14,7 @@ namespace CRUD.WebApi.DotNet6.Infra.IoC
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
