@@ -8,19 +8,19 @@ namespace CRUD.WebApi.DotNet6.Infra.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Client> builder)
         {
-            builder.ToTable("Client");
+            builder.ToTable("client");
 
             builder.HasKey(x => x.ClientId);
 
             builder.Property(x => x.ClientId)
-                .HasColumnName("ClientId")
+                .HasColumnName("clientid")
                 .UseIdentityColumn();
 
             builder.Property(x => x.Email)
-                .HasColumnName("Email");
+                .HasColumnName("email");
 
             builder.Property(x => x.PersonId)
-                .HasColumnName("PersonId");
+                .HasColumnName("personid");
         }
     }
 }

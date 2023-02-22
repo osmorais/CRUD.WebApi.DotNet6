@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "7YrVLofGp0qqgYWQ7muLen+aLIqSoShQxgtni9acnV+HEXrexgVq8Wgvec55WHUV++iQzqft3GMB+h0wE/2S3Q==",
+  "dgSpecHash": "9z9K5WJJ4wX034ReVnxoPXv/HTTUNEF8qrx3cZo9PE4RR8neWv5VfOAa6LvfNWB6/WhMH0feC4V57haxD4Gwww==",
   "success": true,
   "projectFilePath": "D:\\Projetos Jr\\CRUD.WebApi.DotNet6\\CRUD.WebApi.DotNet6.Application\\CRUD.WebApi.DotNet6.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\laris\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512"
+    "C:\\Users\\laris\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\laris\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
+    "C:\\Users\\laris\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

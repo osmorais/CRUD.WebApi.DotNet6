@@ -13,15 +13,15 @@ namespace CRUD.WebApi.DotNet6.Infra.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Person> builder)
         {
-            builder.ToTable("Person");
+            builder.ToTable("person");
             builder.HasKey(x => x.PersonId);
 
             builder.Property(x => x.PersonId)
-                .HasColumnName("PersonId")
+                .HasColumnName("personid")
                 .UseIdentityColumn();
 
             builder.Property(x => x.Name)
-                .HasColumnName("Nome");
+                .HasColumnName("nome");
 
         }
     }
