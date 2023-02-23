@@ -14,6 +14,7 @@ namespace CRUD.WebApi.DotNet6.Application.Mappings
         public DomainToDTOMap()
         {
             CreateMap<Person, PersonDTO>();
+            CreateMap<Client, ClientDTO>();
         }
     }
 }

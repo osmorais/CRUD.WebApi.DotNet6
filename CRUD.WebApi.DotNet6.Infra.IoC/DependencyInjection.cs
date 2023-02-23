@@ -26,7 +26,7 @@ namespace CRUD.WebApi.DotNet6.Infra.IoC
         {
             services.AddAutoMapper(typeof(DomainToDTOMap));
             services.AddScoped<IPersonService, PersonService>();
-            //services.AddScoped<IClientService, ClientService>();
+            services.AddScoped<IClientService, ClientService>();
             return services;
         }
     }

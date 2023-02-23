@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CRUD.WebApi.DotNet6.Application.DTO
 {
-    public class ClientDTO
+    public class ClientDTO : PersonDTO
     {
         public int ClientId { get; set; }
         public string Email { get; set; }

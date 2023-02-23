@@ -21,7 +21,9 @@ namespace CRUD.WebApi.DotNet6.Infra.Data.Mappings
                 .UseIdentityColumn();
 
             builder.Property(x => x.Name)
-                .HasColumnName("nome");
+                .HasColumnName("nome")
+                .IsRequired()
+                .HasMaxLength(70);
 
         }
     }

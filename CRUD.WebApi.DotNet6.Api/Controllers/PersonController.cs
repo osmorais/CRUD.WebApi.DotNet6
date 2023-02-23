@@ -15,14 +15,14 @@ namespace CRUD.WebApi.DotNet6.Api.Controllers
             _personService= personService;
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Post([FromBody] PersonDTO personDTO)
-        {
-            var result = await _personService.CreateAsync(personDTO);
-            if(result.isSuccess)
-                return Ok(result);
+        //[HttpPost]
+        //public async Task<ActionResult> Post([FromBody] PersonDTO personDTO)
+        //{
+        //    var result = await _personService.CreateAsync(personDTO);
+        //    if(result.isSuccess)
+        //        return Ok(result);
 
-            return BadRequest(result);
-        }
+        //    return BadRequest(result);
+        //}
     }
 }

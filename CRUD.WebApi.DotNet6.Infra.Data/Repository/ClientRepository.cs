@@ -16,36 +16,39 @@ namespace CRUD.WebApi.DotNet6.Infra.Data.Repository
 
         public async Task<List<Client>> GetAllAsync()
         {
-            return await _db.Client.ToListAsync();
+            return await _db.Person.OfType<Client>()
+                .ToListAsync();
         }
 
         public async Task<Client> GetClientByEmailAsync(Client client)
         {
-            return await _db.Client.FirstOrDefaultAsync(x => x.Email == client.Email);
+            return await _db.Person.OfType<Client>()
+                .FirstOrDefaultAsync(x => x.Email == client.Email);
         }
 
         public async Task<Client> GetClientByIdAsync(Client client)
         {
-            return await _db.Client.FirstOrDefaultAsync(x => x.ClientId == client.ClientId);
+            return await _db.Person.OfType<Client>()
+                .FirstOrDefaultAsync(x => x.ClientId == client.ClientId);
         }
 
         public async Task<Client> CreateClientAsync(Client client)
         {
-            _db.Add(client);
+            _db.Person.Add(client);
             await _db.SaveChangesAsync();
             return client;
         }
 
         public async Task<Client> DeleteClientAsync(Client client)
         {
-            _db.Remove(client);
+            _db.Person.Remove(client);
             await _db.SaveChangesAsync();
             return client;
         }
 
         public async Task<Client> UpdateClientAsync(Client client)
         {
-            _db.Update(client);
+            _db.Person.Update(client);
             await _db.SaveChangesAsync();
             return client;
         }
