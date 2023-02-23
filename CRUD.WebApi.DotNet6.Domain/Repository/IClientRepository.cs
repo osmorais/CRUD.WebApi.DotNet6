@@ -9,7 +9,7 @@ namespace CRUD.WebApi.DotNet6.Domain.Repository
 {
     public interface IClientRepository
     {
-        Task<List<Client>> GetAllAsync();
+        Task<ICollection<Client>> GetAllAsync();
         Task<Client> GetClientByIdAsync(Client client);
         Task<Client> GetClientByEmailAsync(Client client);
         Task<Client> CreateClientAsync(Client client);

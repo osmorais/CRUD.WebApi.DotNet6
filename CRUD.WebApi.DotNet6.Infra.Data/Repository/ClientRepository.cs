@@ -14,7 +14,7 @@ namespace CRUD.WebApi.DotNet6.Infra.Data.Repository
             _db = db;
         }
 
-        public async Task<List<Client>> GetAllAsync()
+        public async Task<ICollection<Client>> GetAllAsync()
         {
             return await _db.Person.OfType<Client>()
                 .ToListAsync();

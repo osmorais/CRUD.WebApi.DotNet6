@@ -15,6 +15,7 @@ namespace CRUD.WebApi.DotNet6.Application.Mappings
         {
             CreateMap<Person, PersonDTO>();
             CreateMap<Client, ClientDTO>();
+            //CreateMap<List<Client>, List<ClientDTO>>();
         }
     }
 }

@@ -24,7 +24,6 @@ namespace CRUD.WebApi.DotNet6.Application.Services
             this._mapper= mapper;
         }
 
-
         public async Task<ResultService<ClientDTO>> CreateAsync(ClientDTO clientDTO)
         {
             if (clientDTO == null) { return ResultService.Fail<ClientDTO>("ClientDTO is null"); }
@@ -36,6 +35,23 @@ namespace CRUD.WebApi.DotNet6.Application.Services
             var data = await _clientRepository.CreateClientAsync(client);
 
             return ResultService.OK<ClientDTO>(_mapper.Map<ClientDTO>(data));
+        }
+
+        public async Task<ResultService<ClientDTO>> GetClientByEmailAsync(ClientDTO clientDTO)
+        {
+            if (clientDTO == null || string.IsNullOrEmpty(clientDTO.Email)) { return ResultService.Fail<ClientDTO>("ClientDTO or Email is null or empty"); }
+
+            var client = new Client() { Email = clientDTO.Email };
+            var data = await _clientRepository.GetClientByEmailAsync(client);
+
+            return ResultService.OK<ClientDTO>(_mapper.Map<ClientDTO>(data));
+        }
+
+        public async Task<ResultService<ICollection<ClientDTO>>> ListAllClientsAsync()
+        {
+            var data = await _clientRepository.GetAllAsync();
+
+            return ResultService.OK<ICollection<ClientDTO>>(_mapper.Map<ICollection<ClientDTO>>(data));
         }
     }
 }
