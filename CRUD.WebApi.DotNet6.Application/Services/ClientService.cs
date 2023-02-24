@@ -43,7 +43,7 @@ namespace CRUD.WebApi.DotNet6.Application.Services
 
             var client = new Client() { Email = clientDTO.Email };
             client = await _clientRepository.GetClientByEmailAsync(client);
-            if (client == null) return ResultService.Fail("Client for delete was not found"); 
+            if (client == null) return ResultService.Fail("Client to delete was not found"); 
 
             await _clientRepository.DeleteClientByEmailAsync(client);
 
@@ -60,7 +60,7 @@ namespace CRUD.WebApi.DotNet6.Application.Services
             
             var client = _mapper.Map<Client>(clientDTO);
             client = await _clientRepository.GetClientByIdAsync(client);
-            if (client == null) return ResultService.Fail("Client for update was not found");
+            if (client == null) return ResultService.Fail("Client to update was not found");
             
             client = _mapper.Map<ClientDTO, Client>(clientDTO, client);
             await _clientRepository.UpdateClientAsync(client);

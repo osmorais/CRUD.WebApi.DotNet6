@@ -3,15 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD.WebApi.DotNet6.Domain", "CRUD.WebApi.DotNet6.Domain\CRUD.WebApi.DotNet6.Domain.csproj", "{140AB66E-78C0-4C0C-BBD2-96481DBC35C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD.WebApi.DotNet6.Domain", "CRUD.WebApi.DotNet6.Domain\CRUD.WebApi.DotNet6.Domain.csproj", "{140AB66E-78C0-4C0C-BBD2-96481DBC35C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD.WebApi.DotNet6.Infra.Data", "CRUD.WebApi.DotNet6.Infra.Data\CRUD.WebApi.DotNet6.Infra.Data.csproj", "{26AE1C26-2834-46DB-993C-F15AA48408B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD.WebApi.DotNet6.Infra.Data", "CRUD.WebApi.DotNet6.Infra.Data\CRUD.WebApi.DotNet6.Infra.Data.csproj", "{26AE1C26-2834-46DB-993C-F15AA48408B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD.WebApi.DotNet6.Application", "CRUD.WebApi.DotNet6.Application\CRUD.WebApi.DotNet6.Application.csproj", "{88E128CF-815B-4AB0-A343-981EAFF85BF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD.WebApi.DotNet6.Application", "CRUD.WebApi.DotNet6.Application\CRUD.WebApi.DotNet6.Application.csproj", "{88E128CF-815B-4AB0-A343-981EAFF85BF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD.WebApi.DotNet6.Infra.IoC", "CRUD.WebApi.DotNet6.Infra.IoC\CRUD.WebApi.DotNet6.Infra.IoC.csproj", "{3D5E1982-F012-495C-B8A9-D30C1DD3B514}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD.WebApi.DotNet6.Infra.IoC", "CRUD.WebApi.DotNet6.Infra.IoC\CRUD.WebApi.DotNet6.Infra.IoC.csproj", "{3D5E1982-F012-495C-B8A9-D30C1DD3B514}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD.WebApi.DotNet6.Api", "CRUD.WebApi.DotNet6.Api\CRUD.WebApi.DotNet6.Api.csproj", "{B26E032A-755B-457A-8E79-B9090EEA3EC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD.WebApi.DotNet6.Api", "CRUD.WebApi.DotNet6.Api\CRUD.WebApi.DotNet6.Api.csproj", "{B26E032A-755B-457A-8E79-B9090EEA3EC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CD2C4648-F591-41B5-8546-88CA1362A098}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{682C7712-CFD2-4F20-928B-24776FB79DBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD.WebApi.DotNet6.Tests", "CRUD.WebApi.DotNet6.Tests\CRUD.WebApi.DotNet6.Tests.csproj", "{6A4B7591-36A5-4D39-B957-3C31D3DC26FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +45,21 @@ Global
 		{B26E032A-755B-457A-8E79-B9090EEA3EC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B26E032A-755B-457A-8E79-B9090EEA3EC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B26E032A-755B-457A-8E79-B9090EEA3EC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A4B7591-36A5-4D39-B957-3C31D3DC26FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A4B7591-36A5-4D39-B957-3C31D3DC26FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A4B7591-36A5-4D39-B957-3C31D3DC26FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A4B7591-36A5-4D39-B957-3C31D3DC26FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{140AB66E-78C0-4C0C-BBD2-96481DBC35C7} = {CD2C4648-F591-41B5-8546-88CA1362A098}
+		{26AE1C26-2834-46DB-993C-F15AA48408B3} = {CD2C4648-F591-41B5-8546-88CA1362A098}
+		{88E128CF-815B-4AB0-A343-981EAFF85BF0} = {CD2C4648-F591-41B5-8546-88CA1362A098}
+		{3D5E1982-F012-495C-B8A9-D30C1DD3B514} = {CD2C4648-F591-41B5-8546-88CA1362A098}
+		{B26E032A-755B-457A-8E79-B9090EEA3EC7} = {CD2C4648-F591-41B5-8546-88CA1362A098}
+		{6A4B7591-36A5-4D39-B957-3C31D3DC26FE} = {682C7712-CFD2-4F20-928B-24776FB79DBA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CAB159B-AF1D-461D-AF08-ED343991F1E6}

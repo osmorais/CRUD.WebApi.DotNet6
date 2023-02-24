@@ -14,7 +14,7 @@ namespace CRUD.WebApi.DotNet6.Application.DTO.Validations
             RuleFor(x => x.Email)
                 .NotEmpty()
                 .NotNull()
-                .WithMessage("O email deve ser informado");
+                .WithMessage("Email must be informed.");
         }
     }
 }

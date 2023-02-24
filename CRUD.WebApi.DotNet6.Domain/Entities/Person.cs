@@ -16,7 +16,7 @@ namespace CRUD.WebApi.DotNet6.Domain.Entities
 
         public Person (int PersonId, string Name)
         {
-            DomainValidationException.When(PersonId < 0, "Id da pessoa invalido.");
+            DomainValidationException.When(PersonId < 0, "PersonId was invalid.");
             this.PersonId = PersonId;
 
             this.Validation(Name);
@@ -24,7 +24,7 @@ namespace CRUD.WebApi.DotNet6.Domain.Entities
 
         private void Validation(string Name)
         {
-            DomainValidationException.When(string.IsNullOrEmpty(Name), "O nome deve ser informado.");
+            DomainValidationException.When(string.IsNullOrEmpty(Name), "Name must be informed.");
             this.Name = Name;
         }
     }

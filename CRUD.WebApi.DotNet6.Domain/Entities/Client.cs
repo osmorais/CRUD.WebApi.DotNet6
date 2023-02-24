@@ -1,9 +1,4 @@
 ﻿using CRUD.WebApi.DotNet6.Domain.Validations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CRUD.WebApi.DotNet6.Domain.Entities
 {
@@ -19,8 +14,8 @@ namespace CRUD.WebApi.DotNet6.Domain.Entities
 
         public Client(int ClientId, int PersonId, string Name, string Email)
         {
-            DomainValidationException.When(ClientId < 0, "Id do cliente invalido.");
-            DomainValidationException.When(PersonId < 0, "Id da pessoa invalido.");
+            DomainValidationException.When(ClientId < 0, "ClientId was invalid.");
+            DomainValidationException.When(PersonId < 0, "PersonId was invalid.");
             this.ClientId = ClientId;
             base.PersonId = PersonId;
 
@@ -34,8 +29,8 @@ namespace CRUD.WebApi.DotNet6.Domain.Entities
 
         private void Validation(string Name, string Email)
         {
-            DomainValidationException.When(string.IsNullOrEmpty(Name), "O nome deve ser informado.");
-            DomainValidationException.When(string.IsNullOrEmpty(Email), "O email deve ser informado.");
+            DomainValidationException.When(string.IsNullOrEmpty(Name), "Name must be informed.");
+            DomainValidationException.When(string.IsNullOrEmpty(Email), "Email must be informed.");
             base.Name = Name;
             this.Email = Email;
         }
