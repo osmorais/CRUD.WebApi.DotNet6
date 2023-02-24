@@ -27,7 +27,21 @@ namespace CRUD.WebApi.DotNet6.Tests.Domain.Entities
         }
 
         [Fact]
-        public void Test4_PersonIdWasInvalid()
+        public void Test2_NameMustHaveOnlyLetters()
+        {
+            //Arrange & Act
+            var resultHasNumber = Assert.Throws<DomainValidationException>(() =>
+            {
+                new Person(0, "teste1");
+            });
+
+
+            //Assert
+            Assert.Equal("Name must have only letters.", resultHasNumber.Message);
+        }
+
+        [Fact]
+        public void Test3_PersonIdWasInvalid()
         {
             //Arrange & Act
             var resultIsNegative = Assert.Throws<DomainValidationException>(() =>

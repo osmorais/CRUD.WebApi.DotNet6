@@ -70,5 +70,38 @@ namespace CRUD.WebApi.DotNet6.Tests.Domain.Entities
             //Assert
             Assert.Equal("PersonId was invalid.", resultIsNegative.Message);
         }
+
+        [Fact]
+        public void Test5_NameMustHaveOnlyLetters()
+        {
+            //Arrange & Act
+            var resultHasNumber = Assert.Throws<DomainValidationException>(() =>
+            {
+                new Client(0, 0, "teste1", "teste@email.com");
+            });
+
+
+            //Assert
+            Assert.Equal("Name must have only letters.", resultHasNumber.Message);
+        }
+
+        [Fact]
+        public void Test6_EmailMustBeInTheValidFormat()
+        {
+            //Arrange & Act
+            var resultIncorretEmail = Assert.Throws<DomainValidationException>(() =>
+            {
+                new Client(0, 0, "teste", "teste@");
+            });
+            var resultIncorretEmail2 = Assert.Throws<DomainValidationException>(() =>
+            {
+                new Client(0, 0, "teste", "teste");
+            });
+
+
+            //Assert
+            Assert.Equal("Email must be in the valid format.", resultIncorretEmail.Message);
+            Assert.Equal("Email must be in the valid format.", resultIncorretEmail2.Message);
+        }
     }
 }

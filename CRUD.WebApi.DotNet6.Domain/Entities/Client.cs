@@ -12,27 +12,47 @@ namespace CRUD.WebApi.DotNet6.Domain.Entities
 
         }
 
-        public Client(int ClientId, int PersonId, string Name, string Email)
+        public Client(int clientId, int personId, string name, string email)
         {
-            DomainValidationException.When(ClientId < 0, "ClientId was invalid.");
-            DomainValidationException.When(PersonId < 0, "PersonId was invalid.");
-            this.ClientId = ClientId;
-            base.PersonId = PersonId;
+            DomainValidationException.When(clientId < 0, "ClientId was invalid.");
+            DomainValidationException.When(personId < 0, "PersonId was invalid.");
+            this.ClientId = clientId;
+            base.PersonId = personId;
 
-            Validation(Name, Email);
+            Validation(name, email);
         }
 
-        public Client(string Name, string Email)
+        public Client(string name, string email)
         {
-            Validation(Name, Email);
+            Validation(name, email);
         }
 
-        private void Validation(string Name, string Email)
+        private void Validation(string name, string email)
         {
-            DomainValidationException.When(string.IsNullOrEmpty(Name), "Name must be informed.");
-            DomainValidationException.When(string.IsNullOrEmpty(Email), "Email must be informed.");
-            base.Name = Name;
-            this.Email = Email;
+            DomainValidationException.When(string.IsNullOrEmpty(name), "Name must be informed.");
+            DomainValidationException.When(string.IsNullOrEmpty(email), "Email must be informed.");
+            DomainValidationException.When(!IsValidEmail(email), "Email must be in the valid format.");
+
+            var hasDigit = false;
+            foreach(char c in name) hasDigit = Char.IsDigit(c);
+            DomainValidationException.When(hasDigit, "Name must have only letters.");
+
+
+            base.Name = name;
+            this.Email = email;
+        }
+
+        static public bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

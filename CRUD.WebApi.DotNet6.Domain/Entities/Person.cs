@@ -25,6 +25,13 @@ namespace CRUD.WebApi.DotNet6.Domain.Entities
         private void Validation(string Name)
         {
             DomainValidationException.When(string.IsNullOrEmpty(Name), "Name must be informed.");
+            var hasDigit = false;
+            foreach (char c in Name)
+            {
+                hasDigit = Char.IsDigit(c);
+            }
+            DomainValidationException.When(hasDigit, "Name must have only letters.");
+
             this.Name = Name;
         }
     }
