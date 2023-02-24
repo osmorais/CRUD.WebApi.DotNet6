@@ -39,7 +39,7 @@ namespace CRUD.WebApi.DotNet6.Infra.Data.Repository
             return client;
         }
 
-        public async Task<Client> DeleteClientAsync(Client client)
+        public async Task<Client> DeleteClientByEmailAsync(Client client)
         {
             _db.Person.Remove(client);
             await _db.SaveChangesAsync();

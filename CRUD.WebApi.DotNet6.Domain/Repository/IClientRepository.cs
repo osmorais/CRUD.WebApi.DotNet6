@@ -14,6 +14,6 @@ namespace CRUD.WebApi.DotNet6.Domain.Repository
         Task<Client> GetClientByEmailAsync(Client client);
         Task<Client> CreateClientAsync(Client client);
         Task<Client> UpdateClientAsync(Client client);
-        Task<Client> DeleteClientAsync(Client client);
+        Task<Client> DeleteClientByEmailAsync(Client client);
     }
 }

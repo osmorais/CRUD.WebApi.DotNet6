@@ -9,18 +9,16 @@ namespace CRUD.WebApi.DotNet6.Api.Controllers
     public class ClientController : ControllerBase
     {
         private readonly IClientService _clientService;
-        private readonly IPersonService _personService;
 
-        public ClientController(IClientService clientService, IPersonService personService)
+        public ClientController(IClientService clientService)
         {
             this._clientService = clientService;
-            _personService = personService;
         }
 
         [HttpPost]
         public async Task<ActionResult> CreateClient([FromBody] ClientDTO clientDTO)
         {
-            var result = await _clientService.CreateAsync(clientDTO);
+            var result = await _clientService.CreateClientAsync(clientDTO);
             if (result.isSuccess)
                     return Ok(result);
 
@@ -42,6 +40,27 @@ namespace CRUD.WebApi.DotNet6.Api.Controllers
         {
             var clientDTO = new ClientDTO() { Email = email };
             var result = await _clientService.GetClientByEmailAsync(clientDTO);
+            if (result.isSuccess)
+                return Ok(result);
+
+            return BadRequest(result);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateClient([FromBody] ClientDTO clientDTO)
+        {
+            var result = await _clientService.UpdateClientAsync(clientDTO);
+            if (result.isSuccess)
+                return Ok(result);
+
+            return BadRequest(result);
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> DeleteClientByEmail(string email)
+        {
+            var clientDTO = new ClientDTO() { Email = email };
+            var result = await _clientService.DeleteClientByEmailAsync(clientDTO);
             if (result.isSuccess)
                 return Ok(result);
 
