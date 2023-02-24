@@ -41,6 +41,7 @@ namespace CRUD.WebApi.DotNet6.Application.Services
         public static ResultService<T> Fail<T>(string message) => new ResultService<T> { isSuccess = false, message = message };
         public static ResultService OK(string message) => new ResultService { isSuccess = true, message = message };
         public static ResultService<T> OK<T>(T data) => new ResultService<T> { isSuccess = true, Data = data };
+        public static ResultService<T> OK<T>(string message) => new ResultService<T> { isSuccess = false, message = message };
     }
 
     public class ResultService<T> : ResultService

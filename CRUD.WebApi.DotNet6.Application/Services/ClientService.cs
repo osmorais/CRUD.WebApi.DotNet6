@@ -4,12 +4,6 @@ using CRUD.WebApi.DotNet6.Application.DTO.Validations;
 using CRUD.WebApi.DotNet6.Application.Services.Interface;
 using CRUD.WebApi.DotNet6.Domain.Entities;
 using CRUD.WebApi.DotNet6.Domain.Repository;
-using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CRUD.WebApi.DotNet6.Application.Services
 {
@@ -73,7 +67,9 @@ namespace CRUD.WebApi.DotNet6.Application.Services
             if (clientDTO == null || string.IsNullOrEmpty(clientDTO.Email)) return ResultService.Fail<ClientDTO>("ClientDTO or Email is null or empty");
 
             var client = new Client() { Email = clientDTO.Email };
+
             var data = await _clientRepository.GetClientByEmailAsync(client);
+            if (data == null) return ResultService.OK<ClientDTO>("Client was not found");
 
             return ResultService.OK<ClientDTO>(_mapper.Map<ClientDTO>(data));
         }
