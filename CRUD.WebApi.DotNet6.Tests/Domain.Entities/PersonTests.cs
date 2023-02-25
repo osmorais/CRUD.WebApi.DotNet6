@@ -5,53 +5,53 @@ namespace CRUD.WebApi.DotNet6.Tests.Domain.Entities
 {
     public class PersonTests
     {
-
-
-        [Fact]
-        public void Test1_NameMustBeInformed()
+        //[Fact]
+        [Theory]
+        [InlineData(0, null)]
+        [InlineData(0, "")]
+        public void Test1_NameMustBeInformed(int personId, string name)
         {
             //Arrange & Act
-            var resultIsNull = Assert.Throws<DomainValidationException>(() =>
+            var result = Assert.Throws<DomainValidationException>(() =>
             {
-                new Person(0, null);
-            });
-            var resultIsEmpty = Assert.Throws<DomainValidationException>(() =>
-            {
-                new Person(0, "");
+                new Person(personId, name);
             });
 
 
             //Assert
-            Assert.Equal("Name must be informed.", resultIsNull.Message);
-            Assert.Equal("Name must be informed.", resultIsEmpty.Message);
+            Assert.Equal("Name must be informed.", result.Message);
         }
 
-        [Fact]
-        public void Test2_NameMustHaveOnlyLetters()
+        //[Fact]
+        [Theory]
+        [InlineData(0, "teste1")]
+        public void Test2_NameMustHaveOnlyLetters(int personId, string name)
         {
             //Arrange & Act
-            var resultHasNumber = Assert.Throws<DomainValidationException>(() =>
+            var result = Assert.Throws<DomainValidationException>(() =>
             {
-                new Person(0, "teste1");
+                new Person(personId, name);
             });
 
 
             //Assert
-            Assert.Equal("Name must have only letters.", resultHasNumber.Message);
+            Assert.Equal("Name must have only letters.", result.Message);
         }
 
-        [Fact]
-        public void Test3_PersonIdWasInvalid()
+        //[Fact]
+        [Theory]
+        [InlineData(-1, "teste")]
+        public void Test3_PersonIdWasInvalid(int personId, string name)
         {
             //Arrange & Act
-            var resultIsNegative = Assert.Throws<DomainValidationException>(() =>
+            var result = Assert.Throws<DomainValidationException>(() =>
             {
-                new Person(-1, "teste");
+                new Person(personId, name);
             });
 
 
             //Assert
-            Assert.Equal("PersonId was invalid.", resultIsNegative.Message);
+            Assert.Equal("PersonId was invalid.", result.Message);
         }
     }
 }

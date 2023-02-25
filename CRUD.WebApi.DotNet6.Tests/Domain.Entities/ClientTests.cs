@@ -5,103 +5,102 @@ namespace CRUD.WebApi.DotNet6.Tests.Domain.Entities
 {
     public class ClientTests
     {
-        [Fact]
-        public void Test1_NameMustBeInformed()
+        //[Fact]
+        [Theory]
+        [InlineData(0,0, null, "teste@email.com")]
+        [InlineData(0,0, "", "teste@email.com")]
+        public void Test1_NameMustBeInformed(int clientId, int personId, string name, string email)
         {
             //Arrange & Act
-            var resultIsNull = Assert.Throws<DomainValidationException>(() =>
+            var result = Assert.Throws<DomainValidationException>(() =>
             {
-                new Client(0, 0, null, "teste@email.com");
-            });
-            var resultIsEmpty = Assert.Throws<DomainValidationException>(() =>
-            {
-                new Client(0, 0, "", "teste@email.com");
+                new Client(clientId, personId, name, email);
             });
 
 
             //Assert
-            Assert.Equal("Name must be informed.", resultIsNull.Message);
-            Assert.Equal("Name must be informed.", resultIsEmpty.Message);
+            Assert.Equal("Name must be informed.", result.Message);
         }
 
-        [Fact]
-        public void Test2_EmailMustBeInformed()
+        //[Fact]
+        [Theory]
+        [InlineData(0, 0, "teste", "")]
+        [InlineData(0, 0, "teste", null)]
+        public void Test2_EmailMustBeInformed(int clientId, int personId, string name, string email)
         {
             //Arrange & Act
-            var resultIsNull = Assert.Throws<DomainValidationException>(() =>
+            var result = Assert.Throws<DomainValidationException>(() =>
             {
-                new Client(0, 0, "teste", null);
+                new Client(clientId, personId, name, email);
             });
-            var resultIsEmpty = Assert.Throws<DomainValidationException>(() =>
-            {
-                new Client(0, 0, "teste", "");
-            });
-
 
             //Assert
-            Assert.Equal("Email must be informed.", resultIsNull.Message);
-            Assert.Equal("Email must be informed.", resultIsEmpty.Message);
+            Assert.Equal("Email must be informed.", result.Message);
         }
 
-        [Fact]
-        public void Test3_ClientIdWasInvalid()
+        //[Fact]
+        [Theory]
+        [InlineData(-1, 0, "teste", "teste@email.com")]
+        public void Test3_ClientIdWasInvalid(int clientId, int personId, string name, string email)
         {
             //Arrange & Act
-            var resultIsNegative = Assert.Throws<DomainValidationException>(() =>
+            var result = Assert.Throws<DomainValidationException>(() =>
             {
-                new Client(-1, 0, "teste", "teste@email.com");
+                new Client(clientId, personId, name, email);
             });
 
 
             //Assert
-            Assert.Equal("ClientId was invalid.", resultIsNegative.Message);
+            Assert.Equal("ClientId was invalid.", result.Message);
         }
 
-        [Fact]
-        public void Test4_PersonIdWasInvalid()
+        //[Fact]
+        [Theory]
+        [InlineData(0, -1, "teste", "teste@email.com")]
+        public void Test4_PersonIdWasInvalid(int clientId, int personId, string name, string email)
         {
             //Arrange & Act
-            var resultIsNegative = Assert.Throws<DomainValidationException>(() =>
+            var result = Assert.Throws<DomainValidationException>(() =>
             {
-                new Client(0, -1, "teste", "teste@email.com");
+                new Client(clientId, personId, name, email);
             });
 
 
             //Assert
-            Assert.Equal("PersonId was invalid.", resultIsNegative.Message);
+            Assert.Equal("PersonId was invalid.", result.Message);
         }
 
-        [Fact]
-        public void Test5_NameMustHaveOnlyLetters()
+        //[Fact]
+        [Theory]
+        [InlineData(0, 0, "teste1", "teste@email.com")]
+        public void Test5_NameMustHaveOnlyLetters(int clientId, int personId, string name, string email)
         {
             //Arrange & Act
-            var resultHasNumber = Assert.Throws<DomainValidationException>(() =>
+            var result = Assert.Throws<DomainValidationException>(() =>
             {
-                new Client(0, 0, "teste1", "teste@email.com");
+                new Client(clientId, personId, name, email);
             });
 
 
             //Assert
-            Assert.Equal("Name must have only letters.", resultHasNumber.Message);
+            Assert.Equal("Name must have only letters.", result.Message);
         }
 
-        [Fact]
-        public void Test6_EmailMustBeInTheValidFormat()
+        //[Fact]
+        [Theory]
+        [InlineData(0, 0, "teste", "teste@")]
+        [InlineData(0, 0, "teste", "teste")]
+        public void Test6_EmailMustBeInTheValidFormat(int clientId, int personId, string name, string email)
         {
             //Arrange & Act
-            var resultIncorretEmail = Assert.Throws<DomainValidationException>(() =>
+            var result = Assert.Throws<DomainValidationException>(() =>
             {
-                new Client(0, 0, "teste", "teste@");
-            });
-            var resultIncorretEmail2 = Assert.Throws<DomainValidationException>(() =>
-            {
-                new Client(0, 0, "teste", "teste");
+                new Client(clientId, personId, name, email);
             });
 
 
             //Assert
-            Assert.Equal("Email must be in the valid format.", resultIncorretEmail.Message);
-            Assert.Equal("Email must be in the valid format.", resultIncorretEmail2.Message);
+            Assert.Equal("Email must be in the valid format.", result.Message);
         }
     }
 }

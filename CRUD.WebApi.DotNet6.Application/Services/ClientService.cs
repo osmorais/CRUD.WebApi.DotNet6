@@ -20,7 +20,11 @@ namespace CRUD.WebApi.DotNet6.Application.Services
 
         public async Task<ResultService<ClientDTO>> CreateClientAsync(ClientDTO clientDTO)
         {
-            if (clientDTO == null) { return ResultService.Fail<ClientDTO>("ClientDTO is null"); }
+            if (clientDTO == null) 
+                return ResultService.Fail<ClientDTO>("ClientDTO is null.");
+
+            if (clientDTO.ClientId > 0 || clientDTO.PersonId > 0)
+                return ResultService.Fail<ClientDTO>("Unable to create a client that already has an Id.");
 
             var validationResult = new ClientDTOValidator().Validate(clientDTO);
             if (!validationResult.IsValid) { return ResultService.RequestError<ClientDTO>("ClientDTO was not valid", validationResult); }
