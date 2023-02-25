@@ -20,12 +20,17 @@ namespace CRUD.WebApi.DotNet6.Tests.Application.Services
             this.clientService =
                 new ClientService(new Mock<IClientRepository>().Object, new Mock<IMapper>().Object);
         }
+        // Test special characters on name or email
+        // Test letters on Id
+        // Test number on Name
+        // Test an email with an incorret format
 
+        #region CreateClientAsync
         //[Fact]
         [Theory]
         [InlineData(1, 0)]
         [InlineData(0, 1)]
-        public void Test1_CreateClientAsync_SendingValidId(int clientid, int personid)
+        public void CreateClientAsync_SendingValidId(int clientid, int personid)
         {
             //Arrange
             var client = new ClientDTO() { ClientId = clientid, PersonId = personid };
@@ -38,7 +43,7 @@ namespace CRUD.WebApi.DotNet6.Tests.Application.Services
         }
 
         [Fact]
-        public void Test2_CreateClientAsync_SendingNullDTO()
+        public void CreateClientAsync_SendingNullDTO()
         {
             //Arrange & Act
             var result = clientService.CreateClientAsync(null);
@@ -52,16 +57,10 @@ namespace CRUD.WebApi.DotNet6.Tests.Application.Services
         [Theory]
         [InlineData("")]
         [InlineData(null)]
-        public void Test3_CreateClientAsync_SendingNullOrEmptyEmail(string email)
+        public void CreateClientAsync_SendingNullOrEmptyEmail(string email)
         {
             //Arrange
-            var clientDTO = new ClientDTO()
-            {
-                ClientId = 0,
-                Email= email,
-                Name= "teste",
-                PersonId = 0
-            };   
+            var clientDTO = new ClientDTO() { Email= email };   
 
             //Act
             var result = clientService.CreateClientAsync(clientDTO);
@@ -69,5 +68,108 @@ namespace CRUD.WebApi.DotNet6.Tests.Application.Services
             //Assert
             Assert.Equal("ClientDTO was not valid", result.Result.message);
         }
+
+        #endregion
+
+        #region DeleteClientByEmailAsync
+        [Fact]
+        private void DeleteClientByEmailAsync_SendingNullClientDTO()
+        {
+            var result = clientService.DeleteClientByEmailAsync(null);
+
+            Assert.Equal("ClientDTO or Email is null or empty", result.Result.message);
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        private void DeleteClientByEmailAsync_SendingNullOrEmptyEmail(string email)
+        {
+            var clientDTO = new ClientDTO() { Email = email };
+
+            var result = clientService.DeleteClientByEmailAsync(clientDTO);
+
+            Assert.Equal("ClientDTO or Email is null or empty", result.Result.message);
+        }
+
+        [Theory]
+        [InlineData("teste@teste")]
+        private void DeleteClientByEmailAsync_SendingNonexistentEmail(string email)
+        {
+            var clientDTO = new ClientDTO() { Email = email };
+
+            var result = clientService.DeleteClientByEmailAsync(clientDTO);
+
+            Assert.Equal("Client to delete was not found", result.Result.message);
+        }
+
+        #endregion
+
+        #region UpdateClientAsync
+        [Fact]
+        private void UpdateClientAsync_SendingNullClientDTO()
+        {
+            var result = clientService.UpdateClientAsync(null);
+
+            Assert.Equal("ClientDTO is null", result.Result.message);
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        private void UpdateClientAsync_SendingNullOrEmptyEmail(string email)
+        {
+            var clientDTO = new ClientDTO() { Email = email };
+
+            var result = clientService.UpdateClientAsync(clientDTO);
+
+            Assert.Equal("ClientDTO was not valid", result.Result.message);
+        }
+
+        [Theory]
+        [InlineData("teste@teste")]
+        private void UpdateClientAsync_SendingNonexistentEmail(string email)
+        {
+            var clientDTO = new ClientDTO() { Email = email };
+
+            var result = clientService.UpdateClientAsync(clientDTO);
+
+            Assert.Equal("Client to update was not found", result.Result.message);
+        }
+        #endregion
+
+        #region GetClientByEmailAsync
+
+        [Fact]
+        private void GetClientByEmailAsync_SendingNullClientDTO()
+        {
+            var result = clientService.GetClientByEmailAsync(null);
+
+            Assert.Equal("ClientDTO or Email is null or empty", result.Result.message);
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        private void GetClientByEmailAsync_SendingNullOrEmptyEmail(string email)
+        {
+            var clientDTO = new ClientDTO() { Email = email };
+
+            var result = clientService.GetClientByEmailAsync(clientDTO);
+
+            Assert.Equal("ClientDTO or Email is null or empty", result.Result.message);
+        }
+
+        [Theory]
+        [InlineData("teste@teste")]
+        private void GetClientByEmailAsync_SendingNonexistentEmail(string email)
+        {
+            var clientDTO = new ClientDTO() { Email = email };
+
+            var result = clientService.GetClientByEmailAsync(clientDTO);
+
+            Assert.Equal("Client was not found", result.Result.message);
+        }
+        #endregion
     }
 }

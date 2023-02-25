@@ -50,7 +50,7 @@ namespace CRUD.WebApi.DotNet6.Application.Services
 
         public async Task<ResultService> UpdateClientAsync(ClientDTO clientDTO)
         {
-            if (clientDTO == null) { return ResultService.Fail("ClientDTO or Email is null or empty"); }
+            if (clientDTO == null) { return ResultService.Fail("ClientDTO is null"); }
 
             var validationResult = new ClientDTOValidator().Validate(clientDTO);
             if (!validationResult.IsValid) return ResultService.RequestError("ClientDTO was not valid", validationResult);
