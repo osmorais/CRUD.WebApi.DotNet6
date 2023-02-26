@@ -49,11 +49,11 @@ namespace CRUD.WebApi.DotNet6.Application.Services
             if (clientDTO == null || string.IsNullOrEmpty(clientDTO.Email)) 
                 return ResultService.Fail("ClientDTO or Email is null or empty");
 
+            if (!Client.IsValidEmail(clientDTO.Email))
+                return ResultService.Fail("Email must be in the valid format.");
+
             try
             {
-                if (!Client.IsValidEmail(clientDTO.Email))
-                    return ResultService.Fail("Email must be in the valid format.");
-
                 var client = new Client() { Email = clientDTO.Email };
 
                 client = await _clientRepository.GetClientByEmailAsync(client);
@@ -104,11 +104,11 @@ namespace CRUD.WebApi.DotNet6.Application.Services
             if (clientDTO == null || string.IsNullOrEmpty(clientDTO.Email)) 
                 return ResultService.Fail<ClientDTO>("ClientDTO or Email is null or empty");
 
+            if (!Client.IsValidEmail(clientDTO.Email))
+                return ResultService.Fail<ClientDTO>("Email must be in the valid format.");
+
             try
             {
-                if (!Client.IsValidEmail(clientDTO.Email))
-                    return ResultService.Fail<ClientDTO>("Email must be in the valid format.");
-
                 var client = new Client() { Email = clientDTO.Email };
 
                 var data = await _clientRepository.GetClientByEmailAsync(client);

@@ -94,6 +94,18 @@ namespace CRUD.WebApi.DotNet6.Tests.Application.Services
             Assert.Equal("Client to delete was not found", result.Result.message);
         }
 
+        [Theory]
+        [InlineData("teste@")]
+        [InlineData("teste")]
+        private void DeleteClientByEmailAsync_SendingInvalidEmail(string email)
+        {
+            var clientDTO = new ClientDTO() { Email = email };
+
+            var result = clientService.DeleteClientByEmailAsync(clientDTO);
+
+            Assert.Equal("Email must be in the valid format.", result.Result.message);
+        }
+
         #endregion
 
         #region UpdateClientAsync
@@ -160,6 +172,18 @@ namespace CRUD.WebApi.DotNet6.Tests.Application.Services
             var result = clientService.GetClientByEmailAsync(clientDTO);
 
             Assert.Equal("Client was not found", result.Result.message);
+        }
+
+        [Theory]
+        [InlineData("teste@")]
+        [InlineData("teste")]
+        private void GetClientByEmailAsync_SendingInvalidEmail(string email)
+        {
+            var clientDTO = new ClientDTO() { Email = email };
+
+            var result = clientService.GetClientByEmailAsync(clientDTO);
+
+            Assert.Equal("Email must be in the valid format.", result.Result.message);
         }
         #endregion
     }
