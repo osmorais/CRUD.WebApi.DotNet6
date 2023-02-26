@@ -3,11 +3,6 @@ using CRUD.WebApi.DotNet6.Application.DTO;
 using CRUD.WebApi.DotNet6.Application.Services;
 using CRUD.WebApi.DotNet6.Domain.Repository;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CRUD.WebApi.DotNet6.Tests.Application.Services
 {
@@ -20,10 +15,6 @@ namespace CRUD.WebApi.DotNet6.Tests.Application.Services
             this.clientService =
                 new ClientService(new Mock<IClientRepository>().Object, new Mock<IMapper>().Object);
         }
-        // Test special characters on name or email
-        // Test letters on Id
-        // Test number on Name
-        // Test an email with an incorret format
 
         #region CreateClientAsync
         //[Fact]
@@ -55,12 +46,12 @@ namespace CRUD.WebApi.DotNet6.Tests.Application.Services
 
         //[Fact]
         [Theory]
-        [InlineData("")]
-        [InlineData(null)]
-        public void CreateClientAsync_SendingNullOrEmptyEmail(string email)
+        [InlineData("teste", "")]
+        [InlineData("teste", null)]
+        public void CreateClientAsync_SendingNullOrEmptyEmail(string name, string email)
         {
             //Arrange
-            var clientDTO = new ClientDTO() { Email= email };   
+            var clientDTO = new ClientDTO() { Name = name, Email= email };   
 
             //Act
             var result = clientService.CreateClientAsync(clientDTO);
@@ -115,11 +106,11 @@ namespace CRUD.WebApi.DotNet6.Tests.Application.Services
         }
 
         [Theory]
-        [InlineData("")]
-        [InlineData(null)]
-        private void UpdateClientAsync_SendingNullOrEmptyEmail(string email)
+        [InlineData("teste", "")]
+        [InlineData("teste", null)]
+        private void UpdateClientAsync_SendingNullOrEmptyEmail(string name, string email)
         {
-            var clientDTO = new ClientDTO() { Email = email };
+            var clientDTO = new ClientDTO() { Name = name, Email = email };
 
             var result = clientService.UpdateClientAsync(clientDTO);
 
@@ -127,10 +118,10 @@ namespace CRUD.WebApi.DotNet6.Tests.Application.Services
         }
 
         [Theory]
-        [InlineData("teste@teste")]
-        private void UpdateClientAsync_SendingNonexistentEmail(string email)
+        [InlineData("teste","teste@teste")]
+        private void UpdateClientAsync_SendingNonexistentEmail(string name, string email)
         {
-            var clientDTO = new ClientDTO() { Email = email };
+            var clientDTO = new ClientDTO() { Name = name, Email = email };
 
             var result = clientService.UpdateClientAsync(clientDTO);
 

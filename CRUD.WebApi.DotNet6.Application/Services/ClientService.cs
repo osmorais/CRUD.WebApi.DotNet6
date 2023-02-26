@@ -4,6 +4,7 @@ using CRUD.WebApi.DotNet6.Application.DTO.Validations;
 using CRUD.WebApi.DotNet6.Application.Services.Interface;
 using CRUD.WebApi.DotNet6.Domain.Entities;
 using CRUD.WebApi.DotNet6.Domain.Repository;
+using CRUD.WebApi.DotNet6.Domain.Validations;
 
 namespace CRUD.WebApi.DotNet6.Application.Services
 {
@@ -27,62 +28,113 @@ namespace CRUD.WebApi.DotNet6.Application.Services
                 return ResultService.Fail<ClientDTO>("Unable to create a client that already has an Id.");
 
             var validationResult = new ClientDTOValidator().Validate(clientDTO);
-            if (!validationResult.IsValid) { return ResultService.RequestError<ClientDTO>("ClientDTO was not valid", validationResult); }
+            if (!validationResult.IsValid) 
+                return ResultService.RequestError<ClientDTO>("ClientDTO was not valid", validationResult);
 
-            var client = _mapper.Map<Client>(clientDTO);
-            var data = await _clientRepository.CreateClientAsync(client);
+            try 
+            {
+                var client = _mapper.Map<Client>(clientDTO);
+                var data = await _clientRepository.CreateClientAsync(client);
 
-            return ResultService.OK<ClientDTO>(_mapper.Map<ClientDTO>(data));
+                return ResultService.OK<ClientDTO>(_mapper.Map<ClientDTO>(data));
+            }
+            catch (Exception error)
+            {
+                return ResultService.RequestError<ClientDTO>(error.Message);
+            }
         }
 
         public async Task<ResultService> DeleteClientByEmailAsync(ClientDTO clientDTO)
         {
-            if (clientDTO == null || string.IsNullOrEmpty(clientDTO.Email)) return ResultService.Fail("ClientDTO or Email is null or empty");
+            if (clientDTO == null || string.IsNullOrEmpty(clientDTO.Email)) 
+                return ResultService.Fail("ClientDTO or Email is null or empty");
 
-            var client = new Client() { Email = clientDTO.Email };
-            client = await _clientRepository.GetClientByEmailAsync(client);
-            if (client == null) return ResultService.Fail("Client to delete was not found"); 
+            try
+            {
+                if (!Client.IsValidEmail(clientDTO.Email))
+                    return ResultService.Fail("Email must be in the valid format.");
 
-            await _clientRepository.DeleteClientByEmailAsync(client);
+                var client = new Client() { Email = clientDTO.Email };
 
-            return ResultService.OK(string.Format("Client id {0} was deleted with success", client.ClientId));
+                client = await _clientRepository.GetClientByEmailAsync(client);
+                if (client == null) return ResultService.Fail("Client to delete was not found");
+
+                await _clientRepository.DeleteClientByEmailAsync(client);
+
+                return ResultService.OK(string.Format("Client id {0} was deleted with success", client.ClientId));
+            }
+            catch (Exception error)
+            {
+                return ResultService.RequestError(error.Message);
+            }
         }
 
         public async Task<ResultService> UpdateClientAsync(ClientDTO clientDTO)
         {
-            if (clientDTO == null) { return ResultService.Fail("ClientDTO is null"); }
+            if (clientDTO == null)
+                return ResultService.Fail("ClientDTO is null");
 
             var validationResult = new ClientDTOValidator().Validate(clientDTO);
-            if (!validationResult.IsValid) return ResultService.RequestError("ClientDTO was not valid", validationResult);
+            if (!validationResult.IsValid) 
+                return ResultService.RequestError("ClientDTO was not valid", validationResult);
 
-            
-            var client = _mapper.Map<Client>(clientDTO);
-            client = await _clientRepository.GetClientByIdAsync(client);
-            if (client == null) return ResultService.Fail("Client to update was not found");
-            
-            client = _mapper.Map<ClientDTO, Client>(clientDTO, client);
-            await _clientRepository.UpdateClientAsync(client);
+            try
+            {
+                var client = _mapper.Map<Client>(clientDTO);
 
-            return ResultService.OK(string.Format("Client id {0} was updated with success", client.ClientId));
+                client = await _clientRepository.GetClientByIdAsync(client);
+
+                if (client == null) 
+                    return ResultService.Fail("Client to update was not found");
+
+                client = _mapper.Map<ClientDTO, Client>(clientDTO, client);
+
+                await _clientRepository.UpdateClientAsync(client);
+
+                return ResultService.OK(string.Format("Client id {0} was updated with success", client.ClientId));
+            }
+            catch (Exception error)
+            {
+                return ResultService.RequestError(error.Message);
+            }
         }
 
         public async Task<ResultService<ClientDTO>> GetClientByEmailAsync(ClientDTO clientDTO)
         {
-            if (clientDTO == null || string.IsNullOrEmpty(clientDTO.Email)) return ResultService.Fail<ClientDTO>("ClientDTO or Email is null or empty");
+            if (clientDTO == null || string.IsNullOrEmpty(clientDTO.Email)) 
+                return ResultService.Fail<ClientDTO>("ClientDTO or Email is null or empty");
 
-            var client = new Client() { Email = clientDTO.Email };
+            try
+            {
+                if (!Client.IsValidEmail(clientDTO.Email))
+                    return ResultService.Fail<ClientDTO>("Email must be in the valid format.");
 
-            var data = await _clientRepository.GetClientByEmailAsync(client);
-            if (data == null) return ResultService.OK<ClientDTO>("Client was not found");
+                var client = new Client() { Email = clientDTO.Email };
 
-            return ResultService.OK<ClientDTO>(_mapper.Map<ClientDTO>(data));
+                var data = await _clientRepository.GetClientByEmailAsync(client);
+                if (data == null)
+                    return ResultService.OK<ClientDTO>("Client was not found");
+
+                return ResultService.OK<ClientDTO>(_mapper.Map<ClientDTO>(data));
+            }
+            catch (Exception error)
+            {
+                return ResultService.RequestError<ClientDTO>(error.Message);
+            }
         }
 
         public async Task<ResultService<ICollection<ClientDTO>>> ListAllClientsAsync()
         {
-            var data = await _clientRepository.GetAllAsync();
+            try
+            {
+                var data = await _clientRepository.GetAllAsync();
 
-            return ResultService.OK<ICollection<ClientDTO>>(_mapper.Map<ICollection<ClientDTO>>(data));
+                return ResultService.OK<ICollection<ClientDTO>>(_mapper.Map<ICollection<ClientDTO>>(data));
+            }
+            catch (Exception error)
+            {
+                return ResultService.RequestError<ICollection<ClientDTO>>(error.Message);
+            }
         }
     }
 }

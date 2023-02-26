@@ -13,6 +13,22 @@ namespace CRUD.WebApi.DotNet6.Application.Services
         public string message { get; set; }
         public ICollection<ErrorValidation> errors { get; set; }
 
+        public static ResultService RequestError(string message)
+        {
+            return new ResultService()
+            {
+                isSuccess = false,
+                message = message
+            };
+        }
+        public static ResultService<T> RequestError<T>(string message)
+        {
+            return new ResultService<T>()
+            {
+                isSuccess = false,
+                message = message
+            };
+        }
         public static ResultService RequestError(string message, ValidationResult validationResult)
         {
             return new ResultService()

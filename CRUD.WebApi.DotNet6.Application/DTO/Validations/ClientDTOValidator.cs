@@ -11,6 +11,12 @@ namespace CRUD.WebApi.DotNet6.Application.DTO.Validations
     {
         public ClientDTOValidator() 
         {
+
+            RuleFor(x => x.Name)
+                .NotEmpty()
+                .NotNull()
+                .WithMessage("Name must be informed.");
+
             RuleFor(x => x.Email)
                 .NotEmpty()
                 .NotNull()

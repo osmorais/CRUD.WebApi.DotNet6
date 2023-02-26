@@ -5,11 +5,6 @@ namespace CRUD.WebApi.DotNet6.Tests.Domain.Entities
 {
     public class ClientTests
     {
-        // Test special characters on name or email
-        // Test letters on Id
-        // Test number on Name
-        // Test an email with an incorret format
-
         //[Fact]
         [Theory]
         [InlineData(0,0, null, "teste@email.com")]
