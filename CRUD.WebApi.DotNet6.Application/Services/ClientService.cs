@@ -34,6 +34,10 @@ namespace CRUD.WebApi.DotNet6.Application.Services
             try 
             {
                 var client = _mapper.Map<Client>(clientDTO);
+
+                client = await _clientRepository.GetClientByEmailAsync(client);
+                if (client != null) return ResultService.Fail<ClientDTO>("Cannot insert an email that already exists");
+
                 var data = await _clientRepository.CreateClientAsync(client);
 
                 return ResultService.OK<ClientDTO>(_mapper.Map<ClientDTO>(data));
@@ -73,6 +77,9 @@ namespace CRUD.WebApi.DotNet6.Application.Services
         {
             if (clientDTO == null)
                 return ResultService.Fail("ClientDTO is null");
+
+            if (clientDTO.ClientId <= 0 || clientDTO.PersonId <= 0)
+                return ResultService.Fail<ClientDTO>("Unable to update a client that does not have an Id.");
 
             var validationResult = new ClientDTOValidator().Validate(clientDTO);
             if (!validationResult.IsValid) 

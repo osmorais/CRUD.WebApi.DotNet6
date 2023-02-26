@@ -53,5 +53,21 @@ namespace CRUD.WebApi.DotNet6.Tests.Domain.Entities
             //Assert
             Assert.Equal("PersonId was invalid.", result.Message);
         }
+
+        [Theory]
+        [InlineData(0, "teste!")]
+        [InlineData(0, "teste@")]
+        public void Test4_NameCannotHaveSpecialCharacters(int personId, string name)
+        {
+            //Arrange & Act
+            var result = Assert.Throws<DomainValidationException>(() =>
+            {
+                new Person(personId, name);
+            });
+
+
+            //Assert
+            Assert.Equal("Name cannot have special characters.", result.Message);
+        }
     }
 }

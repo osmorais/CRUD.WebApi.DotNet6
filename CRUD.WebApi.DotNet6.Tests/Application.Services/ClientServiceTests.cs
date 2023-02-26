@@ -118,11 +118,11 @@ namespace CRUD.WebApi.DotNet6.Tests.Application.Services
         }
 
         [Theory]
-        [InlineData("teste", "")]
-        [InlineData("teste", null)]
-        private void UpdateClientAsync_SendingNullOrEmptyEmail(string name, string email)
+        [InlineData(1, 1, "teste", "")]
+        [InlineData(1, 1, "teste", null)]
+        private void UpdateClientAsync_SendingNullOrEmptyEmail(int clientId, int personid, string name, string email)
         {
-            var clientDTO = new ClientDTO() { Name = name, Email = email };
+            var clientDTO = new ClientDTO() { ClientId = clientId, PersonId = personid, Name = name, Email = email };
 
             var result = clientService.UpdateClientAsync(clientDTO);
 
@@ -130,14 +130,26 @@ namespace CRUD.WebApi.DotNet6.Tests.Application.Services
         }
 
         [Theory]
-        [InlineData("teste","teste@teste")]
-        private void UpdateClientAsync_SendingNonexistentEmail(string name, string email)
+        [InlineData(1, 1,"teste","teste@teste")]
+        private void UpdateClientAsync_SendingNonexistentEmail(int clientId, int personid, string name, string email)
         {
-            var clientDTO = new ClientDTO() { Name = name, Email = email };
+            var clientDTO = new ClientDTO() { ClientId = clientId, PersonId = personid, Name = name, Email = email };
 
             var result = clientService.UpdateClientAsync(clientDTO);
 
             Assert.Equal("Client to update was not found", result.Result.message);
+        }
+
+        [Theory]
+        [InlineData(0, 1)]
+        [InlineData(1, 0)]
+        private void UpdateClientAsync_SendingInvalidId(int clientId, int personid)
+        {
+            var clientDTO = new ClientDTO() { ClientId = clientId, PersonId = personid };
+
+            var result = clientService.UpdateClientAsync(clientDTO);
+
+            Assert.Equal("Unable to update a client that does not have an Id.", result.Result.message);
         }
         #endregion
 

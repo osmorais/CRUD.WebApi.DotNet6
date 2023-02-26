@@ -73,6 +73,8 @@ namespace CRUD.WebApi.DotNet6.Tests.Domain.Entities
         //[Fact]
         [Theory]
         [InlineData(0, 0, "teste1", "teste@email.com")]
+        [InlineData(0, 0, "teste1teste", "teste@email.com")]
+        [InlineData(0, 0, "1", "teste@email.com")]
         public void Test5_NameMustHaveOnlyLetters(int clientId, int personId, string name, string email)
         {
             //Arrange & Act
@@ -101,6 +103,26 @@ namespace CRUD.WebApi.DotNet6.Tests.Domain.Entities
 
             //Assert
             Assert.Equal("Email must be in the valid format.", result.Message);
+        }
+
+        [Theory]
+        [InlineData(0, 0, "teste!", "teste@email.com")]
+        [InlineData(0, 0, "teste@", "teste@email.com")]
+        [InlineData(0, 0, "teste#", "teste@email.com")]
+        [InlineData(0, 0, "teste$%teste", "teste@email.com")]
+        [InlineData(0, 0, "teste@teste", "teste@email.com")]
+        [InlineData(0, 0, "teste!teste", "teste@email.com")]
+        public void Test7_NameCannotHaveSpecialCharacters(int clientId, int personId, string name, string email)
+        {
+            //Arrange & Act
+            var result = Assert.Throws<DomainValidationException>(() =>
+            {
+                new Client(clientId, personId, name, email);
+            });
+
+
+            //Assert
+            Assert.Equal("Name cannot have special characters.", result.Message);
         }
     }
 }

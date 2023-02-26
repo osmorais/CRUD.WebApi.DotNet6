@@ -1,4 +1,5 @@
 ﻿using CRUD.WebApi.DotNet6.Domain.Validations;
+using System.Text.RegularExpressions;
 
 namespace CRUD.WebApi.DotNet6.Domain.Entities
 {
@@ -7,32 +8,40 @@ namespace CRUD.WebApi.DotNet6.Domain.Entities
         public int PersonId { get; set; }
         public string Name { get; set; }
 
-        public Person () { }
+        public Person() { }
 
-        public Person (string Name)
+        public Person(string Name)
         {
-            this.Validation(Name);
+            this.Name = Name;
+
+            this.Validation();
         }
 
-        public Person (int PersonId, string Name)
+        public Person(int PersonId, string Name)
         {
-            DomainValidationException.When(PersonId < 0, "PersonId was invalid.");
+            this.Name = Name;
             this.PersonId = PersonId;
 
-            this.Validation(Name);
+            this.Validation();
         }
 
-        private void Validation(string Name)
+        private void Validation()
         {
-            DomainValidationException.When(string.IsNullOrEmpty(Name), "Name must be informed.");
-            var hasDigit = false;
-            foreach (char c in Name)
-            {
-                hasDigit = Char.IsDigit(c);
-            }
-            DomainValidationException.When(hasDigit, "Name must have only letters.");
+            DomainValidationException.When(this.PersonId < 0, "PersonId was invalid.");
+            DomainValidationException.When(string.IsNullOrEmpty(this.Name), "Name must be informed.");
+            DomainValidationException.When(hasSpecialCharacters(this.Name), "Name cannot have special characters.");
 
-            this.Name = Name;
+            int hasDigit = 0;
+            foreach (char c in this.Name)
+            {
+                if (Char.IsDigit(c)) { hasDigit++; }
+            }
+            DomainValidationException.When(hasDigit > 0, "Name must have only letters.");
+        }
+
+        public static bool hasSpecialCharacters(string name)
+        {
+            return Regex.IsMatch(name, (@"[^a-zA-Z0-9' ']"));
         }
     }
 }
