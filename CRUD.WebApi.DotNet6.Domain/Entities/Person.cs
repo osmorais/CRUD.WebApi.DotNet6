@@ -25,7 +25,7 @@ namespace CRUD.WebApi.DotNet6.Domain.Entities
             this.Validation();
         }
 
-        private void Validation()
+        public void Validation()
         {
             DomainValidationException.When(this.PersonId < 0, "PersonId was invalid.");
             DomainValidationException.When(string.IsNullOrEmpty(this.Name), "Name must be informed.");
