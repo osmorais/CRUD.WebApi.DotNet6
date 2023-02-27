@@ -35,8 +35,8 @@ namespace CRUD.WebApi.DotNet6.Application.Services
             {
                 var client = _mapper.Map<Client>(clientDTO);
 
-                client = await _clientRepository.GetClientByEmailAsync(client);
-                if (client != null) return ResultService.Fail<ClientDTO>("Cannot insert an email that already exists");
+                var clientExits = await _clientRepository.GetClientByEmailAsync(client);
+                if (clientExits != null) return ResultService.Fail<ClientDTO>("Cannot insert an email that already exists");
 
                 var data = await _clientRepository.CreateClientAsync(client);
 
