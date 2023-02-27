@@ -25,11 +25,11 @@ namespace CRUD.WebApi.DotNet6.Domain.Entities
         public void Validation()
         {
             DomainValidationException.When(this.ClientId < 0, "ClientId was invalid.");
+            DomainValidationException.When(string.IsNullOrEmpty(this.Email), "Email must be informed.");
+            DomainValidationException.When(!IsValidEmail(this.Email), "Email must be in the valid format.");
             //DomainValidationException.When(base.PersonId < 0, "PersonId was invalid.");
             //DomainValidationException.When(string.IsNullOrEmpty(base.Name), "Name must be informed.");
             //DomainValidationException.When(Person.hasSpecialCharacters(base.Name), "Name cannot have special characters.");
-            DomainValidationException.When(string.IsNullOrEmpty(this.Email), "Email must be informed.");
-            DomainValidationException.When(!IsValidEmail(this.Email), "Email must be in the valid format.");
 
             //int hasDigit = 0;
             //foreach (char c in base.Name)
