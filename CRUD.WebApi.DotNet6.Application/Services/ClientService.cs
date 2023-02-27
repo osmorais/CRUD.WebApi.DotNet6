@@ -96,6 +96,9 @@ namespace CRUD.WebApi.DotNet6.Application.Services
 
                 client = _mapper.Map<ClientDTO, Client>(clientDTO, client);
 
+                var clientExits = await _clientRepository.GetClientByEmailAsync(client);
+                if (clientExits != null) return ResultService.Fail<ClientDTO>("Cannot update to an email that already exists");
+
                 await _clientRepository.UpdateClientAsync(client);
 
                 return ResultService.OK(string.Format("Client id {0} was updated with success", client.ClientId));
